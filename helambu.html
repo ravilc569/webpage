@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NepalTreks - Explore Himalayan Wonders</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+            background-image: url('https://www.transparenttextures.com/patterns/light-paper-fibers.png');
+        }
+
+        /* Header with Himalayan Texture */
+        header {
+            background-color: #2c3e50;
+            background-image: url('https://www.transparenttextures.com/patterns/mountain.png');
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9));
+        }
+
+        header h1 {
+            position: relative;
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            position: relative;
+            font-size: 1.2rem;
+            margin: 0.5rem 0 0;
+            opacity: 0.9;
+        }
+
+        /* Navigation with Wood Texture */
+        nav {
+            background-color: #34495e;
+            background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png');
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin: 0 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* Main Content with Paper Texture */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* Destination Cards with Fabric Texture */
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .destination-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background-color: white;
+            background-image: url('https://www.transparenttextures.com/patterns/nepalese-pattern.png');
+        }
+
+        .destination-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .destination-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .card-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Featured Section with Himalayan Texture */
+        .featured {
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: #ecf0f1;
+            background-image: url('https://www.transparenttextures.com/patterns/snow.png');
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .featured h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        /* Testimonials with Linen Texture */
+        .testimonials {
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            background-image: url('https://www.transparenttextures.com/patterns/linen.png');
+            border-radius: 8px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            margin-top: 1rem;
+            color: #2c3e50;
+        }
+
+        /* Footer with Dhaka Topi Pattern */
+        footer {
+            background-color: #2c3e50;
+            background-image: url('https://www.transparenttextures.com/patterns/nepal-pattern.png');
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .footer-section h3 {
+            margin-top: 0;
+            color: #ecf0f1;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #bdc3c7;
+            line-height: 1.6;
+        }
+
+        .footer-section a {
+            display: block;
+            margin-bottom: 0.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 0.5rem 0;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NepalTreks</h1>
+        <p>Discover the Hidden Gems of the Himalayas</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#treks">Treks</a></li>
+            <li><a href="#tips">Travel Tips</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Experience Nepal's Breathtaking Treks</h2>
+            <p>Welcome to NepalTreks, your guide to the most spectacular hiking destinations in Nepal. From the sacred lakes of Panch Pokhari to the majestic peaks of Langtang, we'll help you plan your perfect Himalayan adventure.</p>
+            
+            <div class="featured">
+                <h2>Featured Destination: Ama Yangri</h2>
+                <p>Experience the stunning sunrise views from Ama Yangri peak (3,771m), a sacred site with panoramic Himalayan views just a short trek from Kathmandu. Perfect for beginners and spiritual seekers alike.</p>
+                <a href="#ama-yangri" class="btn">Learn More About Ama Yangri</a>
+            </div>
+        </section>
+
+        <section id="destinations">
+            <h2>Popular Himalayan Treks</h2>
+            <div class="destinations">
+                <div class="destination-card" id="ama-yangri">
+                    <div class="card-image">
+                        <img src="https://source.unsplash.com/random/600x400/?ama+yangri,nepal" alt="Ama Yangri">
+                    </div>
+                    <div class="card-content">
+                        <h3>Ama Yangri Trek</h3>
+                        <p>A short but rewarding trek offering spectacular views of Langtang, Ganesh Himal, and even Everest on clear days. The sacred summit features prayer flags and a small shrine.</p>
+                        <p><strong>Duration:</strong> 2-3 days</p>
+                        <p><strong>Difficulty:</strong> Moderate</p>
+                        <a href="#" class="btn">Trek Details</a>
+                    </div>
+                </div>
+
+                <div class="destination-card" id="panch-pokhari">
+                    <div class="card-image">
+                        <img src="https://source.unsplash.com/random/600x400/?panch+pokhari,nepal" alt="Panch Pokhari">
+                    </div>
+                    <div class="card-content">
+                        <h3>Panch Pokhari Trek</h3>
+                        <p>Journey to the sacred five lakes at 4,100m, a pilgrimage site with breathtaking views. This off-the-beaten-path trek takes you through beautiful rhododendron forests and traditional Tamang villages.</p>
+                        <p><strong>Duration:</strong> 10-12 days</p>
+                        <p><strong>Difficulty:</strong> Challenging</p>
+                        <a href="#" class="btn">Trek Details</a>
+                    </div>
+                </div>
+
+                <div class="destination-card" id="langtang">
+                    <div class="card-image">
+                        <img src="https://source.unsplash.com/random/600x400/?langtang,nepal" alt="Langtang Valley">
+                    </div>
+                    <div class="card-content">
+                        <h3>Langtang Valley Trek</h3>
+                        <p>Explore the "Valley of Glaciers" with its stunning mountain scenery, diverse wildlife, and rich Tamang culture. One of Nepal's most beautiful yet less crowded trekking regions.</p>
+                        <p><strong>Duration:</strong> 7-10 days</p>
+                        <p><strong>Difficulty:</strong> Moderate to Challenging</p>
+                        <a href="#" class="btn">Trek Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>Trekkers' Experiences</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"The Ama Yangri trek was perfect for our short time in Nepal. The sunrise view was absolutely magical - we could see all the way to Everest!"</p>
+                    <p class="testimonial-author">- Sarah & Mark, Australia</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Panch Pokhari was a spiritual journey like no other. The remote trails and sacred lakes made this one of our most meaningful treks in Nepal."</p>
+                    <p class="testimonial-author">- Rajiv, India</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Langtang Valley exceeded all expectations. The combination of mountain views, wildlife sightings, and cultural experiences was unforgettable."</p>
+                    <p class="testimonial-author">- Elena, Germany</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About NepalTreks</h3>
+                <p>We're local trekking experts passionate about sharing Nepal's hidden gems with responsible travelers.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#treks">Trek Packages</a>
+                <a href="#tips">Travel Tips</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <a href="mailto:info@nepaltreks.com">info@nepaltreks.com</a>
+                <a href="tel:+9779841000000">+977 9841 000000</a>
+                <p>Thamel, Kathmandu<br>Nepal</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 NepalTreks. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
